@@ -1,0 +1,13 @@
+.title {
+  padding: 16px;
+  border: 13px inset #bf68a0;
+}
+
+.slick-carousel {
+  width: 100%;
+}
+
+.slick-carousel img {
+  width: 100%;
+  height: 500px;
+}

@@ -1,0 +1,76 @@
+<div class="container filtered-products fs-3 mt-5">
+  <div class="d-flex justify-content-start" style="column-gap: 35px">
+    <div class="form-group fs-2">
+      <p style="font-weight: 600">Filtra per categoria</p>
+      <select
+        class="form-control custom-select fs-2"
+        [(ngModel)]="categoryFilter"
+        (change)="applyCategoryFilter()"
+        style="height: 40px; font-weight: 600"
+      >
+        <option value="nuovi+arrivi">Nuovi Arrivi</option>
+        <option value="più+venduti">Top Selling</option>
+        <option value="nvidia+rtx">NVIDIA RTX</option>
+        <option value="amd+radeon">AMD Radeon</option>
+        <option value="processori+intel">Processori Intel</option>
+        <option value="alimentatori">Alimentatori</option>
+        <option value="schede+madri">Schede Madri</option>
+        <option value="processori+amd">Processori AMD</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <p class="fs-2" style="font-weight: 600">Cerca</p>
+      <input
+        style="height: 40px"
+        type="text"
+        class="form-control fs-2"
+        [(ngModel)]="searchFilter"
+        (input)="applySearchFilter()"
+        placeholder="Cerca prodotto..."
+      />
+    </div>
+  </div>
+  <div class="card table-card" style="max-height: 525px; overflow-y: auto">
+    <table class="table table-striped m-0">
+      <thead>
+        <tr>
+          <th colspan="5">PRODOTTI</th>
+        </tr>
+        <tr>
+          <th scope="col">Nome</th>
+          <th scope="col">Prezzo</th>
+          <th scope="col">Stock</th>
+          <th scope="col">Immagine</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of filteredProducts">
+          <td>{{ product.name }}</td>
+          <td>{{ product.unitPrice }}</td>
+          <td>{{ product.unitsInStock }}</td>
+          <td>{{ product.imageUrl }}</td>
+          <td>
+            <button
+              mat-raised-button
+              class="custom-button"
+              (click)="openEditDialog(product)"
+            >
+              Modifica
+            </button>
+          </td>
+          <td>
+            <button
+              mat-raised-button
+              class="custom-button2"
+              (click)="deleteProduct(product.id)"
+            >
+              <i class="fa fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

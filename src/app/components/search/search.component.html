@@ -1,0 +1,24 @@
+<div>
+  <div class="header-search">
+    <form class="custom-form">
+      <select class="input-select" (change)="onCategorySelected($event)">
+        <option selected value="0" style="display: none">Categorie</option>
+        <option value="3">NVIDIA RTX</option>
+        <option value="4">AMD Radeon</option>
+        <option value="5">Processori Intel</option>
+        <option value="6">Alimentatori</option>
+        <option value="7">Schede Madri</option>
+        <option value="8">Processori AMD</option>
+      </select>
+      <input
+        #myInput
+        (keyup.enter)="doSearch(myInput.value)"
+        class="input"
+        placeholder="Cerca un prodotto..."
+      />
+      <button (click)="doSearch(myInput.value)" class="search-btn">
+        Cerca
+      </button>
+    </form>
+  </div>
+</div>

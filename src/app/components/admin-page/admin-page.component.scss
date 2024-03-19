@@ -1,0 +1,38 @@
+.container {
+  min-height: 600px;
+}
+
+.custom-button {
+  background-color: #3f71e3;
+  color: white;
+  border-radius: 8px;
+  padding: 2px 10px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.custom-button:hover {
+  background-color: #5a8cff;
+}
+
+.custom-button2 {
+  background-color: #e33f3f;
+  color: white;
+  border-radius: 8px;
+  padding: 2px 10px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.custom-button2:hover {
+  background-color: #ff5a5a;
+}
+
+.table th,
+.table td {
+  vertical-align: middle;
+}
+
+.table th {
+  font-size: 19px;
+}

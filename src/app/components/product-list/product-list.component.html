@@ -1,0 +1,154 @@
+<div class="main-content product-list-page fs-1">
+  <div class="section-content section-content-p30">
+    <div class="container">
+      <div class="row justify-content-center p-5 pt-0">
+        <div class="col-md-10">
+          <div class="text-center"></div>
+          <div class="row">
+            <div
+              class="col-md-12 mb-3 mt-3"
+              style="border-bottom: 4px solid #ae1c79"
+            >
+              <div
+                *ngIf="currentCategoryId == 3"
+                class="section-title text-center m-0"
+              >
+                <img
+                  src="https://i.ibb.co/NS24g5c/inntttt.png"
+                  alt=""
+                  style="width: 400px"
+                  class="mt-2 mb-2"
+                />
+              </div>
+              <div
+                *ngIf="currentCategoryId == 4"
+                class="section-title text-center m-0"
+              >
+                <img
+                  src="https://i.ibb.co/NS24g5c/inntttt.png"
+                  alt=""
+                  style="width: 400px"
+                  class="mt-2 mb-2"
+                />
+              </div>
+              <div
+                *ngIf="currentCategoryId == 5"
+                class="section-title text-center m-0"
+              >
+                <img
+                  src="https://i.ibb.co/NS24g5c/inntttt.png"
+                  alt=""
+                  style="width: 400px"
+                  class="mt-2 mb-2"
+                />
+              </div>
+              <div
+                *ngIf="currentCategoryId == 6"
+                class="section-title text-center m-0"
+              >
+                <img
+                  src="https://i.ibb.co/NS24g5c/inntttt.png"
+                  alt=""
+                  style="width: 400px"
+                  class="mt-2 mb-2"
+                />
+              </div>
+              <div
+                *ngIf="currentCategoryId == 7"
+                class="section-title text-center m-0"
+              >
+                <img
+                  src="https://i.ibb.co/NS24g5c/inntttt.png"
+                  alt=""
+                  style="width: 400px"
+                  class="mt-2 mb-2"
+                />
+              </div>
+              <div
+                *ngIf="currentCategoryId == 8"
+                class="section-title text-center m-0"
+              >
+                <img
+                  src="https://i.ibb.co/NS24g5c/inntttt.png"
+                  alt=""
+                  style="width: 400px"
+                  class="mt-2 mb-2"
+                />
+              </div>
+            </div>
+            <div class="footer-pagination">
+              <div class="row justify-content-center">
+                <div class="col-md-8">
+                  <div
+                    class="pagination-container d-flex justify-content-evenly align-items-center"
+                  >
+                    <ngb-pagination
+                      [(page)]="pageNumber"
+                      [pageSize]="pageSize"
+                      [collectionSize]="totalElements"
+                      [maxSize]="5"
+                      [boundaryLinks]="true"
+                      (pageChange)="getProducts()"
+                      class="custom-pagination"
+                      style="height: 72px"
+                    >
+                    </ngb-pagination>
+                    <!-- <span class="mr-2">Page Size:</span> -->
+                    <select
+                      #myPageSelect
+                      (change)="updatePageSize(myPageSelect.value)"
+                    >
+                      <option selected="true">6</option>
+                      <option>12</option>
+                      <option>18</option>
+                      <option>30</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div *ngFor="let product of products" class="col-md-4 mb-4">
+              <div class="product">
+                <div class="product-img d-flex justify-content-center p-3">
+                  <img
+                    src="{{ product.imageUrl }}"
+                    alt=""
+                    style="height: 170px; width: 170px"
+                  />
+                  <div class="product-label"></div>
+                </div>
+                <div class="product-body">
+                  <h3 class="product-name">
+                    <a
+                      style="font-size: 25px"
+                      routerLink="/products/{{ product.id }}"
+                      >{{ product.name }}</a
+                    >
+                  </h3>
+                  <h4 class="product-price">
+                    {{ product.unitPrice | currency : "EUR" }}
+                  </h4>
+                </div>
+                <div class="add-to-cart-product-list">
+                  <button
+                    (click)="addToCart(product)"
+                    class="add-to-cart-btn"
+                    style="font-size: 18px"
+                  >
+                    <i class="fa fa-shopping-cart"></i> Aggiungi
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="products?.length == 0" class="col-md-12">
+              <div class="alert alert-warning text-center" role="alert">
+                <i class="fas fa-exclamation-triangle me-3"></i>La ricerca non
+                ha prodotto risultati!
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

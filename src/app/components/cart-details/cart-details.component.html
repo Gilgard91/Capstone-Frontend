@@ -1,0 +1,85 @@
+<link
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
+<div class="container padding-bottom-3x mb-1 mt-5">
+  <div *ngIf="cartItems.length > 0">
+    <div class="table-responsive shopping-cart fs-2">
+      <table class="table table-striped">
+        <tbody>
+          <tr *ngFor="let tempCartItem of cartItems">
+            <td>
+              <div class="product-item d-flex align-items-center">
+                <a
+                  class="product-thumb d-flex align-items-center"
+                  href="#"
+                  style="width: 130px; height: 130px"
+                  ><img src="{{ tempCartItem.imageUrl }}" alt="Product"
+                /></a>
+                <div class="product-info">
+                  <h4 class="product-title">
+                    <a href="#">{{ tempCartItem.name }}</a>
+                  </h4>
+                </div>
+              </div>
+            </td>
+            <td class="text-center">
+              <div class="d-flex justify-content-between align-items-center">
+                <a
+                  (click)="decrementQuantity(tempCartItem)"
+                  style="cursor: pointer; color: #1e1f29"
+                >
+                  <i class="fas fa-minus-circle"></i>
+                </a>
+                <span>{{ tempCartItem.quantity }}</span>
+                <a
+                  (click)="incrementQuantity(tempCartItem)"
+                  style="cursor: pointer; color: #1e1f29"
+                >
+                  <i class="fas fa-plus-circle"></i>
+                </a>
+              </div>
+            </td>
+            <td class="text-center fs-2">
+              {{
+                tempCartItem.quantity * tempCartItem.unitPrice
+                  | currency : "EUR"
+              }}
+            </td>
+
+            <td class="text-center">
+              <a
+                class="remove-from-cart"
+                (click)="remove(tempCartItem)"
+                data-toggle="tooltip"
+                title=""
+                data-original-title="Remove item"
+                style="cursor: pointer"
+                ><i class="fa fa-trash"></i
+              ></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="shopping-cart-footer fs-1">
+      <div class="column" style="font-size: 32px !important">
+        Totale:
+        <span class="text-medium">{{ totalPrice | currency : "EUR" }}</span>
+      </div>
+    </div>
+    <div class="shopping-cart-footer">
+      <div class="column">
+        <a routerLink="/checkout" class="btn btn-primary fs-2">Checkout</a>
+      </div>
+    </div>
+  </div>
+  <div
+    *ngIf="cartItems.length == 0"
+    class="alert alert-warning cart-alert mt-5"
+    role="alert"
+    style="font-size: 33px"
+  >
+    <i class="fas fa-exclamation-triangle me-3"></i>Il tuo carrello è vuoto.
+  </div>
+</div>

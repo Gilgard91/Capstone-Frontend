@@ -1,0 +1,266 @@
+<div class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-xs-6">
+        <div class="shop">
+          <div class="shop-img">
+            <img
+              src="https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ada/rtx-4090/geforce-ada-4090-web-og-1200x630.jpg"
+              alt=""
+              style="height: 240px"
+            />
+          </div>
+          <div class="shop-body">
+            <h3>NVIDIA<br />RTX</h3>
+            <a href="#" class="cta-btn"
+              >Scopri <i class="fa fa-arrow-circle-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-xs-6">
+        <div class="shop">
+          <div class="shop-img">
+            <img
+              src="https://www.amd.com/system/files/2022-10/1678052-radeon-7900-xtx-og-1200x628.jpg"
+              alt=""
+              style="height: 240px"
+            />
+          </div>
+          <div class="shop-body">
+            <h3>AMD<br />Radeon</h3>
+            <a href="#" class="cta-btn"
+              >Scopri <i class="fa fa-arrow-circle-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-xs-6">
+        <div class="shop">
+          <div class="shop-img">
+            <img
+              src="https://www.intel.com/content/dam/www/central-libraries/us/en/images/2022-08/rpl-2022-dotcom-2col-nextlevel.png.rendition.intel.web.864.486.png"
+              alt=""
+              style="height: 240px"
+            />
+          </div>
+          <div class="shop-body">
+            <h3>Processori<br />Intel</h3>
+            <a href="#" class="cta-btn"
+              >Scopri <i class="fa fa-arrow-circle-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-xs-6">
+        <div class="shop">
+          <div class="shop-img">
+            <img
+              src="https://www.tomshw.it/storage/wp/new-images/2019/08/copertina-guida-psu-45811.jpg"
+              alt=""
+              style="height: 240px"
+            />
+          </div>
+          <div class="shop-body">
+            <h3>Alimentatori</h3>
+            <a href="#" class="cta-btn"
+              >Scopri <i class="fa fa-arrow-circle-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-xs-6">
+        <div class="shop">
+          <div class="shop-img">
+            <img
+              src="https://images.anandtech.com/doci/15804/Banner_1920x1080_678x452.jpg"
+              alt=""
+              style="height: 240px"
+            />
+          </div>
+          <div class="shop-body">
+            <h3>Schede<br />Madri</h3>
+            <a href="#" class="cta-btn"
+              >Scopri <i class="fa fa-arrow-circle-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-xs-6">
+        <div class="shop">
+          <div class="shop-img">
+            <img
+              src="https://wallpapercave.com/wp/wp3931537.jpg"
+              alt=""
+              style="height: 240px"
+            />
+          </div>
+          <div class="shop-body">
+            <h3>Processori<br />AMD</h3>
+            <a href="#" class="cta-btn"
+              >Scopri <i class="fa fa-arrow-circle-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid" style="background-color: #e1e1e173">
+  <div class="container">
+    <div class="slick-carousel">
+      <img
+        src="https://images10.newegg.com/BizIntell/item/VGA/Video%20Card%20-%20Nvidia/14-137-761/2.jpg"
+        alt=""
+      />
+      <img
+        src="https://image.ebuyer.com/customer/promos/RichMedia3/1897728/1.jpg"
+        alt=""
+      />
+      <img src="https://i.ytimg.com/vi/HmsWvHT3uzw/maxresdefault.jpg" alt="" />
+      <img
+        src="https://cdn.shopify.com/s/files/1/1780/7915/files/ASUS_ROG_THOR_1200W_SMPS_Power_Supply_-_From_TPSTech_-_Main_Banner.jpg?v=1630480215"
+        alt=""
+      />
+      <img
+        src="https://www.asus.com/microsite/motherboard/Intel-Raptor-Lake-Z790-H770-B760/v1/img/Intel-Raptor-Lake-Z790-H770-B760.jpg"
+        alt=""
+      />
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div
+          class="section-title text-center"
+          style="background-color: #9d196d"
+        >
+          <img
+            src="https://i.ibb.co/fHYXf6c/arrr.png"
+            alt=""
+            style="width: 368px"
+          />
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="row">
+          <div class="products-tabs">
+            <div id="tab1" class="tab-pane active">
+              <div
+                *ngFor="let product of productsNewArrival"
+                class="col-lg-4 col-md-6 col-sm-12"
+              >
+                <div class="product" style="margin-bottom: 60px">
+                  <div class="product-img d-flex justify-content-center">
+                    <img
+                      src="{{ product.imageUrl }}"
+                      alt=""
+                      style="max-width: 289px; height: 285px"
+                    />
+                    <div class="product-label">
+                      <span class="new">NEW</span>
+                    </div>
+                  </div>
+                  <div class="product-body">
+                    <h3 class="product-name">
+                      <a routerLink="/products/{{ product.id }}">{{
+                        product.name
+                      }}</a>
+                    </h3>
+                    <h4 class="product-price">
+                      {{ product.unitPrice | currency : "EUR" }}
+                    </h4>
+                    <div class="product-rating">
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                    </div>
+                  </div>
+                  <div class="add-to-cart">
+                    <button
+                      (click)="addToCart(product)"
+                      class="add-to-cart-btn"
+                      style="font-size: 20px"
+                    >
+                      <i class="fa fa-shopping-cart"></i> Aggiungi
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div
+          class="section-title text-center"
+          style="background-color: #9d196d"
+        >
+          <img
+            src="https://i.ibb.co/vYKW7Zv/sell.png"
+            alt=""
+            style="width: 368px"
+          />
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="row">
+          <div class="products-tabs slick-carousel-topselling">
+            <div
+              *ngFor="let product of productsTopSelling"
+              class="col-lg-3 col-md-6 col-sm-12"
+            >
+              <div class="product">
+                <div class="product-img d-flex justify-content-center">
+                  <img
+                    src="{{ product.imageUrl }}"
+                    alt=""
+                    style="height: 170px; max-width: 200px"
+                  />
+                </div>
+                <div class="product-body">
+                  <h3 class="product-name">
+                    <a
+                      style="font-size: 23px"
+                      routerLink="/products/{{ product.id }}"
+                      >{{ product.name }}</a
+                    >
+                  </h3>
+                  <h4 class="product-price">
+                    {{ product.unitPrice | currency : "EUR" }}
+                  </h4>
+                  <div class="product-rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

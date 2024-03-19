@@ -1,0 +1,103 @@
+<section class="py-5">
+  <div class="container">
+    <div class="row gx-5">
+      <aside class="col-lg-6">
+        <div
+          class="mb-3 d-flex justify-content-center"
+          style="max-width: 430px"
+        >
+          <img
+            style="max-width: 100%; max-height: 100vh; margin: auto"
+            class="rounded-4 fit"
+            src="{{ product?.imageUrl }}"
+          />
+        </div>
+
+        <!-- thumbs-wrap.// -->
+        <!-- gallery-wrap .end// -->
+      </aside>
+      <main class="col-lg-6 fs-2">
+        <div class="ps-lg-3">
+          <h4 class="title text-dark" style="font-size: 36px">
+            {{ product?.name }}
+          </h4>
+          <div class="d-flex flex-row my-3">
+            <span class="text-success" style="font-weight: 600"
+              ><i class="fas fa-shopping-basket fa-sm mx-1"></i> In stock:
+              {{ product?.unitsInStock }}</span
+            >
+          </div>
+          <div>
+            <h4 style="color: #ae1c79; font-size: 24px">
+              {{ product?.unitPrice | currency : "EUR" }}
+            </h4>
+          </div>
+
+          <p>
+            {{ product?.description }}
+          </p>
+
+          <hr />
+
+          <div class="row mb-4">
+            <!-- col.// -->
+          </div>
+
+          <div class="add-to-cart">
+            <button class="add-to-cart-btn">
+              <i class="fa fa-shopping-cart"></i> Aggiungi
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</section>
+
+<!-- <div class="section" style="margin-bottom: 10em">
+  <div class="container fs-3">
+    <div class="row justify-content-between">
+      <div class="col-md-5">
+        <img src="{{ product?.imageUrl }}" style="width: 350px" alt="" />
+      </div>
+      <div class="col-md-5">
+        <div class="product-details">
+          <h2 class="product-name" style="font-size: 36px">
+            {{ product?.name }}
+          </h2>
+
+          <div>
+            <h3 class="product-price">
+              {{ product?.unitPrice | currency : "EUR" }}
+            </h3>
+          </div>
+          <p>
+            {{ product?.description }}
+          </p>
+
+          <div class="add-to-cart-details">
+            <button class="add-to-cart-btn">
+              <i class="fa fa-shopping-cart"></i> Acquista
+            </button>
+          </div>
+
+          <ul class="product-links">
+            <li>Categoria:</li>
+            <li><a href="#">categoria</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div style="width: 50%">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, rem
+        dolorem ipsam expedita fugiat architecto in pariatur aperiam totam eum
+        recusandae doloremque animi, deserunt quasi est harum, asperiores
+        debitis consectetur.Lorem ipsum dolor sit amet consectetur adipisicing
+        elit. Iusto, rem dolorem ipsam expedita fugiat architecto in pariatur
+        aperiam totam eum recusandae doloremque animi, deserunt quasi est harum,
+        asperiores debitis consectetur.
+      </p>
+    </div>
+  </div>
+</div> -->
