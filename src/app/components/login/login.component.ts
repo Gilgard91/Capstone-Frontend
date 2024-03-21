@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
 
   constructor(@Inject(OKTA_AUTH) private oktaAuth: OktaAuth) {
     this.oktaSignin = new OktaSignIn({
-      logo: 'assets/img/epicode-logo2.png',
+      logo: 'assets/img/epichwlogin.png',
       baseUrl: AppConfig.oidc.issuer.split('/oauth2')[0],
       clientId: AppConfig.oidc.clientId,
       redirectUri: AppConfig.oidc.redirectUri,

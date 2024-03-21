@@ -25,11 +25,12 @@
       <div class="row align-items-center">
         <div class="col-md-3" style="margin-right: 7rem">
           <div class="header-logo">
-            <a href="#" class="logo">
+            <a routerLink="/home" class="logo">
               <img
                 src="../assets/img/epicodehwlogowhite.png"
                 alt=""
                 style="width: 248px"
+                id="header-img"
               />
             </a>
           </div>
@@ -38,7 +39,7 @@
         <app-search class="col md-6"></app-search>
 
         <div class="col-md-3 clearfix">
-          <div class="header-ctn">
+          <div class="header-ctn" id="header-ctn">
             <div class="dropdown">
               <app-cart-status></app-cart-status>
             </div>
@@ -110,7 +111,7 @@
     </div>
   </div>
 
-  <div id="bottom-footer" class="section">
+  <!-- <div id="bottom-footer" class="section">
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
@@ -137,5 +138,5 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </footer>

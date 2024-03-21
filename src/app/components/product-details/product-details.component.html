@@ -1,9 +1,9 @@
 <section class="py-5">
-  <div class="container">
+  <div class="container" style="min-height: 415px">
     <div class="row gx-5">
       <aside class="col-lg-6">
         <div
-          class="mb-3 d-flex justify-content-center"
+          class="mb-3 mt-4 d-flex justify-content-center"
           style="max-width: 430px"
         >
           <img
@@ -37,14 +37,12 @@
             {{ product?.description }}
           </p>
 
-          <hr />
-
           <div class="row mb-4">
             <!-- col.// -->
           </div>
 
           <div class="add-to-cart">
-            <button class="add-to-cart-btn">
+            <button (click)="addToCart()" class="add-to-cart-btn">
               <i class="fa fa-shopping-cart"></i> Aggiungi
             </button>
           </div>

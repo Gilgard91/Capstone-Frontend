@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product, ProductResponse } from '../interfaces/product';
+import { Customer } from '../interfaces/customer';
+import { OrderResponse } from '../interfaces/order';
 
 @Injectable({
   providedIn: 'root',
@@ -32,5 +34,25 @@ export class AdminService {
   deleteProduct(id: number): Observable<Product> {
     const url = `http://localhost:3001/products/${id}`;
     return this.http.delete<Product>(url);
+  }
+
+  getCustomersList(): Observable<Customer[]> {
+    const url = 'http://localhost:3001/checkout/customers';
+    return this.http.get<Customer[]>(url);
+  }
+
+  getOrdersByEmail(email: string): Observable<OrderResponse[]> {
+    const url = `http://localhost:3001/orders/findByEmail?email=${email}`;
+    return this.http.get<OrderResponse[]>(url);
+  }
+
+  getOrdersList(): Observable<OrderResponse[]> {
+    const url = 'http://localhost:3001/orders';
+    return this.http.get<OrderResponse[]>(url);
+  }
+
+  updateOrderStatus(order: OrderResponse): Observable<OrderResponse> {
+    const url = `http://localhost:3001/orders/${order.id}`;
+    return this.http.put<OrderResponse>(url, order);
   }
 }

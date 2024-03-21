@@ -1,4 +1,14 @@
 <div class="container filtered-products fs-3 mt-5">
+  <div style="border-bottom: 7px double #1e1f29" class="mb-4">
+    <div class="text-center m-0">
+      <img
+        src="https://i.ibb.co/VtsgKc5/prodotti.png"
+        alt=""
+        style="width: 246px"
+        class="mt-2 mb-2"
+      />
+    </div>
+  </div>
   <div class="d-flex justify-content-start" style="column-gap: 35px">
     <div class="form-group fs-2">
       <p style="font-weight: 600">Filtra per categoria</p>
@@ -34,23 +44,22 @@
     <table class="table table-striped m-0">
       <thead>
         <tr>
-          <th colspan="5">PRODOTTI</th>
-        </tr>
-        <tr>
+          <th scope="col">ID</th>
           <th scope="col">Nome</th>
           <th scope="col">Prezzo</th>
           <th scope="col">Stock</th>
-          <th scope="col">Immagine</th>
+          <th scope="col">Ultima modifica</th>
           <th scope="col"></th>
           <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let product of filteredProducts">
+          <td>{{ product.id }}</td>
           <td>{{ product.name }}</td>
-          <td>{{ product.unitPrice }}</td>
+          <td>{{ product.unitPrice | currency : "EUR" }}</td>
           <td>{{ product.unitsInStock }}</td>
-          <td>{{ product.imageUrl }}</td>
+          <td>{{ product.lastUpdated }}</td>
           <td>
             <button
               mat-raised-button
@@ -68,6 +77,67 @@
             >
               <i class="fa fa-trash"></i>
             </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="container filtered-orders fs-3 mt-5">
+  <div style="border-bottom: 7px double #1e1f29" class="mb-4">
+    <div class="text-center m-0">
+      <img
+        src="https://i.ibb.co/HKS19Gy/ordini.png"
+        alt=""
+        style="width: 183px"
+        class="mt-2 mb-2"
+      />
+    </div>
+  </div>
+  <div class="d-flex justify-content-start" style="column-gap: 35px">
+    <div class="form-group fs-2">
+      <p style="font-weight: 600">Filtra per cliente</p>
+      <select
+        class="form-control custom-select fs-2"
+        [(ngModel)]="customerFilter"
+        (change)="applyCustomerFilter()"
+        style="height: 40px; font-weight: 600"
+      >
+        <option
+          *ngFor="let customer of allCustomers"
+          value="{{ customer.email }}"
+        >
+          {{ customer.email }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="card table-card" style="max-height: 525px; overflow-y: auto">
+    <table class="table table-striped m-0">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Tracking</th>
+          <th scope="col">Totale</th>
+          <th scope="col">Data Acquisto</th>
+          <th scope="col">Stato</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of filteredOrders">
+          <td>{{ order.id }}</td>
+          <td>{{ order.orderTrackingNumber }}</td>
+          <td>{{ order.totalPrice | currency : "EUR" }}</td>
+          <td>{{ order.dateCreated }}</td>
+          <td>
+            <select
+              [(ngModel)]="order.status"
+              (change)="updateOrderStatus(order)"
+            >
+              <option value="IN LAVORAZIONE">IN LAVORAZIONE</option>
+              <option value="SPEDITO">SPEDITO</option>
+            </select>
           </td>
         </tr>
       </tbody>

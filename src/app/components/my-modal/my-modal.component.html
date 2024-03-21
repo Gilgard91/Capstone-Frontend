@@ -24,6 +24,15 @@
   </div>
 
   <div class="form-group">
+    <label for="unitsInStock">Immagine</label>
+    <input
+      type="text"
+      class="form-control"
+      id="imageUrl"
+      [(ngModel)]="data.imageUrl"
+    />
+  </div>
+  <div class="form-group">
     <label for="unitsInStock">Stock</label>
     <input
       type="text"
@@ -40,8 +49,7 @@
   <button
     mat-button
     (click)="onSaveClick()"
-    class="custom-button fs-2"
-    style="background-color: green"
+    class="custom-button2 fs-2"
     [mat-dialog-close]="data"
     cdkFocusInitial
   >

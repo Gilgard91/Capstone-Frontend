@@ -8,7 +8,7 @@
 
   <li *ngIf="isAdmin" class="login-status-user-info m-0">Bentornato Admin!</li>
 
-  <li class="m-0">
+  <li class="m-0 me-2">
     <a *ngIf="!isAuthenticated" routerLink="/login"
       ><i class="fa fa-user-o"></i> Login</a
     >
@@ -27,12 +27,8 @@
       ><i class="fa fa-list-alt"></i> Ordini</a
     >
   </li>
-  <li>
-    <a
-      class="header-links"
-      style="cursor: pointer"
-      *ngIf="isAuthenticated"
-      (click)="logout()"
+  <li *ngIf="isAuthenticated" style="margin-right: 20px">
+    <a class="header-links" style="cursor: pointer" (click)="logout()"
       ><i class="fa fa-user-o"></i> Logout</a
     >
   </li>

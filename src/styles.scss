@@ -1,9 +1,84 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+.sticky {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  // animation: fadeInDown 0.4s ease-out;
+  transition: padding 0.5s ease;
+  padding: 0 !important;
+  border-bottom: 1.5px solid black;
+  background: linear-gradient(
+    to bottom right,
+    rgb(56 3 139 / 94%),
+    rgb(202 34 117 / 94%)
+  ) !important;
+  backdrop-filter: blur(3px) !important;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.default-header {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  /* background-color: #15161D; */
+  background: linear-gradient(to bottom right, #38038b, #ca2275);
+  transition: padding 0.5s ease;
+}
+
+.bigger-header-img {
+  width: 248px;
+  transition: width 0.5s ease !important;
+}
+
+.bigger-header-search {
+  padding: 15px 0px;
+  transition: padding 0.5s ease !important;
+}
+
+.bigger-header-cart {
+  padding: 15px 0px;
+  transition: padding 0.5s ease !important;
+}
+
+.smaller-header-img {
+  width: 155px !important;
+  transition: width 0.5s ease !important;
+}
+
+.smaller-header-search {
+  padding: 0 !important;
+  transition: padding 0.5s ease !important;
+}
+
+.smaller-header-cart {
+  padding: 11px 0px 0 0 !important;
+  transition: padding 0.5s ease !important;
+}
 body {
   font-family: "Barlow Condensed", sans-serif !important;
   font-weight: 400;
   color: #333;
+  background-color: rgb(252, 252, 252) !important;
+}
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 472px; /* Footer height */
 }
 
 h1,
@@ -83,6 +158,83 @@ app-home {
         Buttons
     \*----------------------------*/
 
+#okta-sign-in .custom-checkbox label,
+#okta-sign-in .custom-radio label {
+  cursor: pointer;
+  display: block;
+  line-height: 16px;
+  margin: 0;
+  padding: 4px 9px 7px 24px;
+  position: relative;
+}
+
+#okta-sign-in .o-form .custom-checkbox label {
+  font-size: 16px;
+}
+
+#okta-sign-in .auth-footer {
+  font-size: 16px;
+  font-family: "Barlow Condensed", sans-serif !important;
+}
+
+#okta-sign-in.auth-container input[type="submit"] {
+  font-family: "Barlow Condensed", sans-serif !important;
+  font-size: 24px;
+}
+
+#okta-sign-in.auth-container h2,
+#okta-sign-in.auth-container h3 {
+  display: none;
+}
+
+#okta-sign-in .o-form-head {
+  font-size: 24px;
+  line-height: 1.5;
+  margin-top: -2px;
+  text-align: center;
+  text-transform: none;
+}
+
+#okta-sign-in .o-form .o-form-label,
+#okta-sign-in .o-form input,
+#okta-sign-in .o-form label,
+#okta-sign-in .o-form textarea {
+  font-size: 18px;
+}
+
+#okta-sign-in.auth-container.main-container {
+  box-shadow: 0px 13px 13px 7px rgb(57 57 57 / 87%);
+}
+
+#okta-sign-in .auth-org-logo {
+  display: block;
+  margin: 0 auto;
+  max-height: 69px;
+  max-width: 200px;
+}
+
+#okta-sign-in form {
+  font-family: "Barlow Condensed", sans-serif !important;
+}
+
+#okta-sign-in.auth-container .button-primary {
+  background: linear-gradient(to bottom right, #38038b, #ca2275) !important;
+
+  border-color: #004b75 #004b75 #00456a;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 0 hsla(0, 0%, 100%, 0.1);
+  color: #fff;
+}
+
+#okta-sign-in.auth-container .button-primary:hover {
+  background: linear-gradient(to bottom right, #5604da, #fc2b93) !important;
+
+  border-color: #004b75 #004b75 #00456a;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 0 hsla(0, 0%, 100%, 0.1);
+  color: #fff;
+}
+
 .primary-btn {
   display: inline-block;
   padding: 12px 30px;
@@ -135,7 +287,7 @@ textarea.input {
 }
 
 .input-number input[type="number"] {
-  -moz-appearance: textfield;
+  // -moz-appearance: textfield;
   height: 40px;
   width: 100%;
   border: 1px solid #e4e7ed;
@@ -548,6 +700,7 @@ app-login > div {
   width: 90px;
   text-align: center;
   color: #fff;
+  text-decoration: none;
 }
 
 .header-ctn > div > app-cart-status > a > i {
@@ -904,6 +1057,7 @@ app-login > div {
   box-shadow: 0px 9px 12px 4px #878787;
   -webkit-transition: 0.2s all;
   transition: 0.2s all;
+  background-color: white;
 }
 
 .product:hover {
@@ -2140,8 +2294,17 @@ app-login > div {
     ===========================================================*/
 
 #footer {
-  background: #15161d;
+  // background: #1e1f29;
+  background: linear-gradient(
+    0deg,
+    rgba(30, 31, 41, 1) 74%,
+    rgba(30, 31, 41, 1) 95%,
+    rgba(174, 28, 121, 1) 100%
+  );
   color: #b9babc;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 }
 
 #bottom-footer {
@@ -2189,11 +2352,19 @@ app-login > div {
   margin-right: 5px;
 }
 
-.footer-payments li a {
-  color: #a3a3a3;
-  font-size: 36px;
-  display: block;
+.footer-payments li i {
+  color: #ae1c79;
 }
+
+.footer-payments2 li {
+  margin-right: 5px;
+}
+
+// .footer-payments li a {
+//   color: #a3a3a3;
+//   font-size: 36px;
+//   display: block;
+// }
 
 /*=========================================================
         12 -> SLICK STYLE

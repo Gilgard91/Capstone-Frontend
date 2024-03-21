@@ -88,25 +88,25 @@ export class CheckoutComponent implements OnInit, OnDestroy {
           shopValidators.notOnlyWhitespace,
         ]),
       }),
-      billingAddress: this.formBuilder.group({
-        street: new FormControl('', [
-          Validators.required,
-          Validators.minLength(2),
-          shopValidators.notOnlyWhitespace,
-        ]),
-        city: new FormControl('', [
-          Validators.required,
-          Validators.minLength(2),
-          shopValidators.notOnlyWhitespace,
-        ]),
-        region: new FormControl('', [Validators.required]),
-        country: new FormControl('', [Validators.required]),
-        zipCode: new FormControl('', [
-          Validators.required,
-          Validators.minLength(2),
-          shopValidators.notOnlyWhitespace,
-        ]),
-      }),
+      // billingAddress: this.formBuilder.group({
+      //   street: new FormControl('', [
+      //     Validators.required,
+      //     Validators.minLength(2),
+      //     shopValidators.notOnlyWhitespace,
+      //   ]),
+      //   city: new FormControl('', [
+      //     Validators.required,
+      //     Validators.minLength(2),
+      //     shopValidators.notOnlyWhitespace,
+      //   ]),
+      //   region: new FormControl('', [Validators.required]),
+      //   country: new FormControl('', [Validators.required]),
+      //   zipCode: new FormControl('', [
+      //     Validators.required,
+      //     Validators.minLength(2),
+      //     shopValidators.notOnlyWhitespace,
+      //   ]),
+      // }),
       creditCard: this.formBuilder.group({
         cardType: new FormControl('', [Validators.required]),
         nameOnCard: new FormControl('', [
@@ -248,20 +248,21 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     purchase.shippingAddress.country = shippingCountry.name;
 
     // indirizzo fatturazione
-    purchase.billingAddress =
-      this.checkoutFormGroup.controls['billingAddress'].value;
-    const billingRegion: Region = JSON.parse(
-      JSON.stringify(purchase.billingAddress.region)
-    );
-    const billingCountry: Country = JSON.parse(
-      JSON.stringify(purchase.billingAddress.country)
-    );
-    purchase.billingAddress.region = billingRegion.name;
-    purchase.billingAddress.country = billingCountry.name;
+    // purchase.billingAddress =
+    //   this.checkoutFormGroup.controls['billingAddress'].value;
+    // const billingRegion: Region = JSON.parse(
+    //   JSON.stringify(purchase.billingAddress.region)
+    // );
+    // const billingCountry: Country = JSON.parse(
+    //   JSON.stringify(purchase.billingAddress.country)
+    // );
+    // purchase.billingAddress.region = billingRegion.name;
+    // purchase.billingAddress.country = billingCountry.name;
 
     // order + orderItems
     purchase.order = order;
     purchase.orderItems = orderItems;
+    order.status = 'ACCETTATO';
 
     this.checkoutSrv.placeOrder(purchase).subscribe({
       next: (res) => {
@@ -282,7 +283,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 
     this.checkoutFormGroup.reset();
 
-    this.router.navigateByUrl('/products');
+    this.router.navigateByUrl('/home');
   }
 
   get firstName() {

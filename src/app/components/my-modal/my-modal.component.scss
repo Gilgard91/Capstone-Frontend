@@ -10,3 +10,20 @@
 .custom-button:hover {
   background-color: #5a8cff; /* Colore di sfondo personalizzato al passaggio del mouse */
 }
+
+.custom-button2 {
+  background-color: green;
+  color: white; /* Colore del testo */
+  border-radius: 8px; /* Bordi arrotondati */
+  padding: 4px 13px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Ombreggiatura */
+  transition: background-color 0.3s ease; /* Transizione al passaggio del mouse */
+}
+
+.custom-button2:hover {
+  background-color: rgb(
+    0,
+    173,
+    0
+  ); /* Colore di sfondo personalizzato al passaggio del mouse */
+}

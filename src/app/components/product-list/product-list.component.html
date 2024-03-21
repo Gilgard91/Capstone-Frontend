@@ -6,6 +6,7 @@
           <div class="text-center"></div>
           <div class="row">
             <div
+              *ngIf="searchMode == false"
               class="col-md-12 mb-3 mt-3"
               style="border-bottom: 4px solid #ae1c79"
             >
@@ -14,9 +15,9 @@
                 class="section-title text-center m-0"
               >
                 <img
-                  src="https://i.ibb.co/NS24g5c/inntttt.png"
+                  src="https://i.ibb.co/kKQ3pFL/rtx.png"
                   alt=""
-                  style="width: 400px"
+                  style="width: 285px"
                   class="mt-2 mb-2"
                 />
               </div>
@@ -25,9 +26,9 @@
                 class="section-title text-center m-0"
               >
                 <img
-                  src="https://i.ibb.co/NS24g5c/inntttt.png"
+                  src="https://i.ibb.co/6BMcgVz/rad.png"
                   alt=""
-                  style="width: 400px"
+                  style="width: 314px"
                   class="mt-2 mb-2"
                 />
               </div>
@@ -47,9 +48,9 @@
                 class="section-title text-center m-0"
               >
                 <img
-                  src="https://i.ibb.co/NS24g5c/inntttt.png"
+                  src="https://i.ibb.co/wCMrxJQ/alim.png"
                   alt=""
-                  style="width: 400px"
+                  style="width: 322px"
                   class="mt-2 mb-2"
                 />
               </div>
@@ -58,9 +59,9 @@
                 class="section-title text-center m-0"
               >
                 <img
-                  src="https://i.ibb.co/NS24g5c/inntttt.png"
+                  src="https://i.ibb.co/s3Q3Gc0/mobo.png"
                   alt=""
-                  style="width: 400px"
+                  style="width: 334px"
                   class="mt-2 mb-2"
                 />
               </div>
@@ -69,7 +70,7 @@
                 class="section-title text-center m-0"
               >
                 <img
-                  src="https://i.ibb.co/NS24g5c/inntttt.png"
+                  src="https://i.ibb.co/SySTJQ7/processoriamd.png"
                   alt=""
                   style="width: 400px"
                   class="mt-2 mb-2"
@@ -118,7 +119,7 @@
                   <div class="product-label"></div>
                 </div>
                 <div class="product-body">
-                  <h3 class="product-name">
+                  <h3 class="product-name" style="line-height: 0.8">
                     <a
                       style="font-size: 25px"
                       routerLink="/products/{{ product.id }}"

@@ -1,0 +1,15 @@
+.add-to-cart {
+  position: absolute;
+  left: 70px;
+  right: 70px;
+  bottom: -48px;
+  padding: 15px;
+  background: none;
+  text-align: center;
+  -webkit-transform: translateY(0%);
+  -ms-transform: translateY(0%);
+  transform: translateY(0%);
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  z-index: 2;
+}

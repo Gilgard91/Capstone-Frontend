@@ -2,7 +2,17 @@
   href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
   rel="stylesheet"
 />
-<div class="container padding-bottom-3x mb-1 mt-5">
+<div class="container padding-bottom-3x mb-1 mt-3">
+  <div style="border-bottom: 4px solid #ae1c79" class="mb-4">
+    <div class="text-center m-0">
+      <img
+        src="https://i.ibb.co/5sLR4GS/carrello.png"
+        alt=""
+        style="width: 285px"
+        class="mt-2 mb-2"
+      />
+    </div>
+  </div>
   <div *ngIf="cartItems.length > 0">
     <div class="table-responsive shopping-cart fs-2">
       <table class="table table-striped">
@@ -18,7 +28,9 @@
                 /></a>
                 <div class="product-info">
                   <h4 class="product-title">
-                    <a href="#">{{ tempCartItem.name }}</a>
+                    <a routerLink="/products/{{ tempCartItem.id }}">{{
+                      tempCartItem.name
+                    }}</a>
                   </h4>
                 </div>
               </div>
@@ -70,7 +82,9 @@
     </div>
     <div class="shopping-cart-footer">
       <div class="column">
-        <a routerLink="/checkout" class="btn btn-primary fs-2">Checkout</a>
+        <button routerLink="/checkout" class="custom-button fs-2">
+          Checkout
+        </button>
       </div>
     </div>
   </div>

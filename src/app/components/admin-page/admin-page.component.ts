@@ -4,6 +4,8 @@ import { AdminService } from 'src/app/services/admin.service';
 
 import { MatDialog } from '@angular/material/dialog';
 import { MyModalComponent } from '../my-modal/my-modal.component';
+import { Customer } from 'src/app/interfaces/customer';
+import { Order, OrderResponse } from 'src/app/interfaces/order';
 
 @Component({
   selector: 'app-admin-page',
@@ -11,17 +13,51 @@ import { MyModalComponent } from '../my-modal/my-modal.component';
   styleUrls: ['./admin-page.component.scss'],
 })
 export class AdminPageComponent implements OnInit {
-  categoryFilter: string = '';
+  categoryFilter: string = 'nuovi+arrivi';
   filteredProducts: Product[] = [];
-
   allProducts: Product[] = [];
 
   searchFilter: string = '';
   searchedProducts: Product[] = [];
 
+  customerFilter: string = '';
+  filteredOrders: Order[] = [];
+  // allOrders: Order[] = [];
+  allCustomers: Customer[] = [];
+
   constructor(private adminSrv: AdminService, public dialog: MatDialog) {}
   ngOnInit(): void {
     this.getAllProducts();
+    this.getProductsByCategory();
+    this.getAllCustomers();
+  }
+
+  getAllCustomers() {
+    this.adminSrv.getCustomersList().subscribe({
+      next: (res) => {
+        this.allCustomers = res;
+      },
+    });
+  }
+
+  updateOrderStatus(order: OrderResponse) {
+    this.adminSrv.updateOrderStatus(order).subscribe({
+      next: () => {
+        console.log("Stato dell'ordine aggiornato");
+      },
+    });
+  }
+
+  getOrdersByCustomerEmail() {
+    this.adminSrv.getOrdersByEmail(this.customerFilter).subscribe({
+      next: (res) => {
+        this.filteredOrders = res;
+      },
+    });
+  }
+
+  applyCustomerFilter() {
+    this.getOrdersByCustomerEmail();
   }
 
   getAllProducts() {
@@ -75,6 +111,7 @@ export class AdminPageComponent implements OnInit {
           imageUrl: product.imageUrl,
           active: product.active,
           unitsInStock: product.unitsInStock,
+          lastUpdated: product.lastUpdated,
           category: product.category,
         },
       });
