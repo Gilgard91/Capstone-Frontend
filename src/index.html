@@ -108,26 +108,46 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nivo.slider/3.2/jquery.nivo.slider.min.js"></script>
     <script>
+      // window.addEventListener("scroll", function () {
+      //   var topHeader = document.getElementById("top-header");
+      //   var bottomHeader = document.getElementById("bottom-header");
+      //   var headerImg = document.getElementById("header-img");
+      //   var headerSearch = document.getElementById("header-search");
+      //   var headerCart = document.getElementById("header-ctn");
+      //   var headerPlaceholder = document.getElementById("header-placeholder");
+
+      //   var sticky = document.getElementById("header");
+      //   var value = topHeader.offsetTop;
+
+      //   if (window.pageYOffset > value) {
+      //     bottomHeader.classList.add("smaller-header");
+      //     topHeader.style.display = "none";
+      //     headerImg.classList.add("smaller-header-img");
+      //     headerSearch.classList.add("smaller-header-search");
+      //     headerCart.classList.add("smaller-header-cart");
+      //   } else {
+      //     bottomHeader.classList.remove("smaller-header");
+      //     topHeader.style.display = "block";
+      //     headerImg.classList.remove("smaller-header-img");
+      //     headerImg.classList.add("bigger-header-img");
+      //     headerSearch.classList.remove("smaller-header-search");
+      //     headerSearch.classList.add("bigger-header-search");
+      //     headerCart.classList.remove("smaller-header-cart");
+      //     headerCart.classList.add("bigger-header-cart");
+      //   }
+      // });
+
       window.addEventListener("scroll", function () {
         var topHeader = document.getElementById("top-header");
-        var header = document.getElementById("header");
-        var headerImg = document.getElementById("header-img");
-        var headerSearch = document.getElementById("header-search");
-        var headerCart = document.getElementById("header-ctn");
-        if (window.pageYOffset > topHeader.offsetHeight) {
-          header.classList.add("sticky");
-          headerImg.classList.add("smaller-header-img");
-          headerSearch.classList.add("smaller-header-search");
-          headerCart.classList.add("smaller-header-cart");
+        var sticky = document.getElementById("header");
+        var value = topHeader.offsetTop;
+
+        if (window.pageYOffset > value) {
+          topHeader.style.display = "none";
+          sticky.classList.add("smaller-header");
         } else {
-          header.classList.remove("sticky");
-          header.classList.add("default-header");
-          headerImg.classList.remove("smaller-header-img");
-          headerImg.classList.add("bigger-header-img");
-          headerSearch.classList.remove("smaller-header-search");
-          headerSearch.classList.add("bigger-header-search");
-          headerCart.classList.remove("smaller-header-cart");
-          headerCart.classList.add("bigger-header-cart");
+          topHeader.style.display = "block";
+          sticky.classList.remove("smaller-header");
         }
       });
     </script>
