@@ -10,63 +10,69 @@
     </div>
   </div>
   <div class="main-content">
-    <div *ngIf="orderHistoryList && orderHistoryList.length > 0">
-      <table class="table-bordered fs-2">
-        <tbody>
-          <tr>
-            <th class="p-2 ps-3" width="10%">Codice di tracking</th>
-            <th class="p-2 ps-3" width="5%">Prezzo totale</th>
-            <th class="p-2 ps-3" width="5%">Numero articoli</th>
-            <th class="p-2 ps-3" width="5%">Data di acquisto</th>
-            <th class="p-2 ps-3" width="3%">Stato</th>
-          </tr>
-
-          <tr *ngFor="let orderHistory of orderHistoryList">
-            <td class="p-2 ps-3">
-              {{ orderHistory.orderTrackingNumber }}
-            </td>
-            <td class="p-2 ps-3">
-              {{ orderHistory.totalPrice | currency : "EUR" }}
-            </td>
-            <td class="p-2 ps-3">
-              {{ orderHistory.totalQuantity }}
-            </td>
-            <td class="p-2 ps-3">
-              {{ orderHistory.dateCreated }}
-            </td>
-            <td
-              style="
-                text-align: center;
-                font-weight: 500;
-                display: flex;
-                align-items: center;
-                border: 0;
-              "
-              class="p-2"
-            >
-              <i
-                class="fas fa-circle me-2"
-                style="font-size: 15px; text-align: center"
-                [ngClass]="{
-                  'text-blue': orderHistory.status === 'ACCETTATO',
-                  'text-yellow': orderHistory.status === 'IN LAVORAZIONE',
-                  'text-green': orderHistory.status === 'SPEDITO'
-                }"
-              ></i>
-              {{ orderHistory.status }}
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div *ngIf="loadingData; else orderHistoryContent">
+      <div class="text-center mt-5">
+        <i class="fas fa-spinner fa-3x fa-spin"></i>
+      </div>
     </div>
+    <ng-template #orderHistoryContent>
+      <div *ngIf="orderHistoryList && orderHistoryList.length > 0">
+        <table class="table-bordered fs-2">
+          <tbody>
+            <tr>
+              <th class="p-2 ps-3" width="10%">Codice di tracking</th>
+              <th class="p-2 ps-3" width="5%">Prezzo totale</th>
+              <th class="p-2 ps-3" width="5%">Numero articoli</th>
+              <th class="p-2 ps-3" width="5%">Data di acquisto</th>
+              <th class="p-2 ps-3" width="3%">Stato</th>
+            </tr>
 
-    <div
-      *ngIf="orderHistoryList.length == 0"
-      class="alert alert-warning col-md-12 mt-5 text-center"
-      role="alert"
-      style="font-size: 33px"
-    >
-      <i class="fas fa-exclamation-triangle me-3"></i>Nessun ordine trovato.
-    </div>
+            <tr *ngFor="let orderHistory of orderHistoryList">
+              <td class="p-2 ps-3">
+                {{ orderHistory.orderTrackingNumber }}
+              </td>
+              <td class="p-2 ps-3">
+                {{ orderHistory.totalPrice | currency : "EUR" }}
+              </td>
+              <td class="p-2 ps-3">
+                {{ orderHistory.totalQuantity }}
+              </td>
+              <td class="p-2 ps-3">
+                {{ orderHistory.dateCreated }}
+              </td>
+              <td
+                style="
+                  text-align: center;
+                  font-weight: 500;
+                  display: flex;
+                  align-items: center;
+                  border: 0;
+                "
+                class="p-2"
+              >
+                <i
+                  class="fas fa-circle me-2"
+                  style="font-size: 15px; text-align: center"
+                  [ngClass]="{
+                    'text-blue': orderHistory.status === 'ACCETTATO',
+                    'text-yellow': orderHistory.status === 'IN LAVORAZIONE',
+                    'text-green': orderHistory.status === 'SPEDITO'
+                  }"
+                ></i>
+                {{ orderHistory.status }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div
+        *ngIf="orderHistoryList.length == 0"
+        class="alert alert-warning col-md-12 mt-5 text-center"
+        role="alert"
+        style="font-size: 33px"
+      >
+        <i class="fas fa-exclamation-triangle me-3"></i>Nessun ordine trovato.
+      </div>
+    </ng-template>
   </div>
 </div>

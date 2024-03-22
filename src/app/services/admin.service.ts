@@ -1,7 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Product, ProductResponse } from '../interfaces/product';
+import {
+  CategoryResponse,
+  Product,
+  ProductResponse,
+} from '../interfaces/product';
 import { Customer } from '../interfaces/customer';
 import { OrderResponse } from '../interfaces/order';
 
@@ -54,5 +58,15 @@ export class AdminService {
   updateOrderStatus(order: OrderResponse): Observable<OrderResponse> {
     const url = `http://localhost:3001/orders/${order.id}`;
     return this.http.put<OrderResponse>(url, order);
+  }
+
+  addProduct(product: Product): Observable<Product> {
+    const url = 'http://localhost:3001/products';
+    return this.http.post<Product>(url, product);
+  }
+
+  getCategories(): Observable<CategoryResponse[]> {
+    const url = 'http://localhost:3001/category';
+    return this.http.get<CategoryResponse[]>(url);
   }
 }

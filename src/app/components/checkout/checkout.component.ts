@@ -15,6 +15,8 @@ import { CheckoutService } from 'src/app/services/checkout.service';
 import { ShopFormService } from 'src/app/services/shop-form.service';
 import { shopValidators } from 'src/app/validators/shop-validators';
 import { UserDetailsService } from 'src/app/services/user-details.service';
+import { MatDialog } from '@angular/material/dialog';
+import { PurchaseResponseModalComponent } from '../purchase-response-modal/purchase-response-modal.component';
 
 @Component({
   selector: 'app-checkout',
@@ -44,7 +46,8 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     private cartSrv: CartService,
     private checkoutSrv: CheckoutService,
     private router: Router,
-    private userDetailsSrv: UserDetailsService
+    private userDetailsSrv: UserDetailsService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -266,9 +269,15 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 
     this.checkoutSrv.placeOrder(purchase).subscribe({
       next: (res) => {
-        alert(`Codice tracking: ${res.orderTrackingNumber}`);
-
-        this.resetCart();
+        // alert(`Codice tracking: ${res.orderTrackingNumber}`);
+        const dialogRef = this.dialog.open(PurchaseResponseModalComponent, {
+          width: '500px',
+          data: res,
+        });
+        dialogRef.afterClosed().subscribe(() => {
+          this.resetCart();
+          this.router.navigateByUrl('/home');
+        });
       },
       error: (err) => {
         alert(`Error: ${err.message}`);
@@ -282,8 +291,6 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     this.cartSrv.totalQuantity.next(0);
 
     this.checkoutFormGroup.reset();
-
-    this.router.navigateByUrl('/home');
   }
 
   get firstName() {

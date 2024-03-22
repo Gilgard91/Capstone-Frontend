@@ -39,6 +39,16 @@
         placeholder="Cerca prodotto..."
       />
     </div>
+    <div class="d-flex align-self-end">
+      <button
+        mat-raised-button
+        class="custom-button3"
+        style="margin-bottom: 18px"
+        (click)="openAddModal(newProduct)"
+      >
+        Aggiungi
+      </button>
+    </div>
   </div>
   <div class="card table-card" style="max-height: 525px; overflow-y: auto">
     <table class="table table-striped m-0">
@@ -64,7 +74,7 @@
             <button
               mat-raised-button
               class="custom-button"
-              (click)="openEditDialog(product)"
+              (click)="openEditModal(product)"
             >
               Modifica
             </button>

@@ -3,9 +3,11 @@ import { Product } from 'src/app/interfaces/product';
 import { AdminService } from 'src/app/services/admin.service';
 
 import { MatDialog } from '@angular/material/dialog';
-import { MyModalComponent } from '../my-modal/my-modal.component';
+import { EditModalComponent } from '../edit-modal/edit-modal.component';
 import { Customer } from 'src/app/interfaces/customer';
 import { Order, OrderResponse } from 'src/app/interfaces/order';
+import { AddModalComponent } from '../add-modal/add-modal.component';
+import { ConfirmDeleteModalComponent } from '../confirm-delete-modal/confirm-delete-modal.component';
 
 @Component({
   selector: 'app-admin-page',
@@ -25,11 +27,26 @@ export class AdminPageComponent implements OnInit {
   // allOrders: Order[] = [];
   allCustomers: Customer[] = [];
 
+  newProduct: Product = {
+    id: null,
+    sku: '',
+    name: '',
+    description: '',
+    unitPrice: 0,
+    imageUrl: '',
+    active: false,
+    unitsInStock: 0,
+    dateCreated: new Date(),
+    lastUpdated: new Date(),
+    category: { id: null, categoryName: '' },
+  };
+
   constructor(private adminSrv: AdminService, public dialog: MatDialog) {}
   ngOnInit(): void {
     this.getAllProducts();
     this.getProductsByCategory();
     this.getAllCustomers();
+    this.getCategories();
   }
 
   getAllCustomers() {
@@ -89,6 +106,17 @@ export class AdminPageComponent implements OnInit {
     this.allProducts = [];
   }
 
+  getCategories(): void {
+    this.adminSrv.getCategories().subscribe({
+      next: (categories) => {
+        console.log('categorie: ', categories);
+      },
+      error: (error) => {
+        console.error('Errore: ', error);
+      },
+    });
+  }
+
   applyCategoryFilter() {
     this.getProductsByCategory();
   }
@@ -97,10 +125,30 @@ export class AdminPageComponent implements OnInit {
     this.getProductsByName();
   }
 
-  openEditDialog(product: Product): void {
+  openAddModal(product: Product): void {
+    const dialogRef = this.dialog.open(AddModalComponent, {
+      width: '500px',
+      data: {
+        sku: product.sku,
+        name: product.name,
+        description: product.description,
+        unitPrice: product.unitPrice,
+        imageUrl: product.imageUrl,
+        active: product.active,
+        unitsInStock: product.unitsInStock,
+        lastUpdated: product.lastUpdated,
+        category: product.category,
+      },
+    });
+    // dialogRef.componentInstance.onSave.subscribe((newProduct: Product) => {
+    //   this.filteredProducts.push(newProduct);
+    // });
+  }
+
+  openEditModal(product: Product): void {
     if (product) {
       console.log('Product:', product);
-      const dialogRef = this.dialog.open(MyModalComponent, {
+      const dialogRef = this.dialog.open(EditModalComponent, {
         width: '500px',
         data: {
           id: product.id,
@@ -131,15 +179,24 @@ export class AdminPageComponent implements OnInit {
   }
 
   deleteProduct(productId: number) {
-    this.adminSrv.deleteProduct(productId).subscribe({
-      next: () => {
-        this.filteredProducts = this.filteredProducts.filter(
-          (product) => product.id !== productId
-        );
-      },
-      error: (err) => {
-        console.error('Errore', err);
-      },
+    const dialogRef = this.dialog.open(ConfirmDeleteModalComponent, {
+      width: '250px',
+      data: { productId: productId },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === true) {
+        this.adminSrv.deleteProduct(productId).subscribe({
+          next: () => {
+            this.filteredProducts = this.filteredProducts.filter(
+              (product) => product.id !== productId
+            );
+          },
+          error: (err) => {
+            console.error('Errore', err);
+          },
+        });
+      }
     });
   }
 }

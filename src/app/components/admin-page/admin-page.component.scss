@@ -28,6 +28,23 @@
   background-color: #ff5a5a;
 }
 
+.custom-button3 {
+  background-color: green;
+  color: white; /* Colore del testo */
+  border-radius: 8px; /* Bordi arrotondati */
+  padding: 4px 13px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Ombreggiatura */
+  transition: background-color 0.3s ease; /* Transizione al passaggio del mouse */
+}
+
+.custom-button3:hover {
+  background-color: rgb(
+    0,
+    173,
+    0
+  ); /* Colore di sfondo personalizzato al passaggio del mouse */
+}
+
 .table th,
 .table td {
   vertical-align: middle;

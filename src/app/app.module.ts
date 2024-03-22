@@ -4,10 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ProductService } from './services/product.service';
 import { Router, RouterModule, Routes } from '@angular/router';
-import { ProductCategoryMenuComponent } from './components/product-category-menu/product-category-menu.component';
 import { SearchComponent } from './components/search/search.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -30,8 +29,12 @@ import { UserDetailsService } from './services/user-details.service';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
 import { HomeComponent } from './components/home/home.component';
 import { MdbModalModule, MdbModalService } from 'mdb-angular-ui-kit/modal';
-import { MyModalComponent } from './components/my-modal/my-modal.component';
+import { EditModalComponent } from './components/edit-modal/edit-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { AddModalComponent } from './components/add-modal/add-modal.component';
+import { ConfirmDeleteModalComponent } from './components/confirm-delete-modal/confirm-delete-modal.component';
+import { PurchaseResponseModalComponent } from './components/purchase-response-modal/purchase-response-modal.component';
 
 const oktaConfig = AppConfig.oidc;
 
@@ -76,7 +79,6 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     ProductListComponent,
-    ProductCategoryMenuComponent,
     SearchComponent,
     ProductDetailsComponent,
     CartStatusComponent,
@@ -87,7 +89,10 @@ const routes: Routes = [
     AdminPageComponent,
     OrderHistoryComponent,
     HomeComponent,
-    MyModalComponent,
+    EditModalComponent,
+    AddModalComponent,
+    ConfirmDeleteModalComponent,
+    PurchaseResponseModalComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -105,7 +110,13 @@ const routes: Routes = [
     MdbModalService,
     ProductService,
     { provide: OKTA_CONFIG, useValue: { oktaAuth } },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    },
   ],
+
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
