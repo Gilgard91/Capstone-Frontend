@@ -56,7 +56,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       slidesToShow: 1,
       slidesToScroll: 1,
       autoplay: true,
-      autoplaySpeed: 1500,
+      autoplaySpeed: 1250,
       infinite: true,
       fade: true,
       rows: 1,

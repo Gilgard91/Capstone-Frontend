@@ -110,7 +110,10 @@
             </div>
             <div *ngFor="let product of products" class="col-md-4 mb-4">
               <div class="product">
-                <div class="product-img d-flex justify-content-center p-3">
+                <div
+                  class="product-img d-flex justify-content-center p-3"
+                  style="padding-bottom: 0 !important"
+                >
                   <img
                     src="{{ product.imageUrl }}"
                     alt=""
@@ -118,15 +121,15 @@
                   />
                   <div class="product-label"></div>
                 </div>
-                <div class="product-body">
+                <div class="product-body" style="padding-top: 0">
                   <h3 class="product-name" style="line-height: 0.8">
                     <a
-                      style="font-size: 25px"
+                      style="font-size: 25px; text-decoration: none"
                       routerLink="/products/{{ product.id }}"
                       >{{ product.name }}</a
                     >
                   </h3>
-                  <h4 class="product-price">
+                  <h4 class="product-price" style="font-size: 29px">
                     {{ product.unitPrice | currency : "EUR" }}
                   </h4>
                 </div>

@@ -164,7 +164,7 @@
                     <img
                       src="{{ product.imageUrl }}"
                       alt=""
-                      style="max-width: 289px; height: 285px; padding: 18px 0"
+                      style="max-width: 289px; height: 285px; padding: 31px 0"
                     />
                     <div class="product-label">
                       <span class="new">NEW</span>
@@ -176,7 +176,7 @@
                         product.name
                       }}</a>
                     </h3>
-                    <h4 class="product-price">
+                    <h4 class="product-price" style="font-size: 37px">
                       {{ product.unitPrice | currency : "EUR" }}
                     </h4>
                     <div class="product-rating">
@@ -206,7 +206,7 @@
   </div>
 </div>
 
-<div class="section">
+<div class="section py-0">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -230,14 +230,17 @@
               class="col-lg-3 col-md-6 col-sm-12"
             >
               <div class="product">
-                <div class="product-img d-flex justify-content-center">
+                <div
+                  class="product-img d-flex justify-content-center"
+                  style="padding-top: 10px"
+                >
                   <img
                     src="{{ product.imageUrl }}"
                     alt=""
                     style="height: 170px; max-width: 200px; padding: 0 10px"
                   />
                 </div>
-                <div class="product-body">
+                <div class="product-body" style="padding-top: 10px">
                   <h3 class="product-name" style="line-height: 0.8">
                     <a
                       style="font-size: 23px"
@@ -245,7 +248,7 @@
                       >{{ product.name }}</a
                     >
                   </h3>
-                  <h4 class="product-price">
+                  <h4 class="product-price" style="font-size: 30px">
                     {{ product.unitPrice | currency : "EUR" }}
                   </h4>
                   <div class="product-rating">

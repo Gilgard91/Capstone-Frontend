@@ -28,7 +28,11 @@
     >
   </li>
   <li *ngIf="isAuthenticated" style="margin-right: 20px">
-    <a class="header-links" style="cursor: pointer" (click)="logout()"
+    <a
+      style="text-decoration: none"
+      class="header-links"
+      style="cursor: pointer"
+      (click)="logout()"
       ><i class="fa fa-user-o"></i> Logout</a
     >
   </li>
