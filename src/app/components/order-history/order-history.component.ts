@@ -19,7 +19,7 @@ export class OrderHistoryComponent implements OnInit {
 
     setTimeout(() => {
       this.loadingData = false;
-    }, 2000);
+    }, 1500);
   }
 
   handleOrderHistory() {

@@ -15,6 +15,7 @@ export class CartDetailsComponent implements OnInit {
   constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
     this.listCartDetails();
   }
 

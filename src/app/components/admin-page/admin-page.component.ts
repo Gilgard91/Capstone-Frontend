@@ -27,6 +27,8 @@ export class AdminPageComponent implements OnInit {
   // allOrders: Order[] = [];
   allCustomers: Customer[] = [];
 
+  loadingData: boolean = true;
+
   newProduct: Product = {
     id: null,
     sku: '',
@@ -35,7 +37,7 @@ export class AdminPageComponent implements OnInit {
     unitPrice: 0,
     imageUrl: '',
     active: false,
-    unitsInStock: 0,
+    unitsInStock: null,
     dateCreated: new Date(),
     lastUpdated: new Date(),
     category: { id: null, categoryName: '' },
@@ -47,6 +49,7 @@ export class AdminPageComponent implements OnInit {
     this.getProductsByCategory();
     this.getAllCustomers();
     this.getCategories();
+    this.loadingData = false;
   }
 
   getAllCustomers() {
@@ -66,9 +69,13 @@ export class AdminPageComponent implements OnInit {
   }
 
   getOrdersByCustomerEmail() {
+    this.loadingData = true;
     this.adminSrv.getOrdersByEmail(this.customerFilter).subscribe({
       next: (res) => {
-        this.filteredOrders = res;
+        setTimeout(() => {
+          this.filteredOrders = res;
+          this.loadingData = false;
+        }, 500);
       },
     });
   }
@@ -129,20 +136,20 @@ export class AdminPageComponent implements OnInit {
     const dialogRef = this.dialog.open(AddModalComponent, {
       width: '500px',
       data: {
-        sku: product.sku,
+        sku: this.generateSKU(8),
         name: product.name,
         description: product.description,
         unitPrice: product.unitPrice,
         imageUrl: product.imageUrl,
         active: product.active,
-        unitsInStock: product.unitsInStock,
+        unitsInStock: Math.floor(Math.random() * (1489 - 35 + 1)) + 35,
         lastUpdated: product.lastUpdated,
         category: product.category,
       },
     });
-    // dialogRef.componentInstance.onSave.subscribe((newProduct: Product) => {
-    //   this.filteredProducts.push(newProduct);
-    // });
+    dialogRef.componentInstance.onSave.subscribe((newProduct: Product) => {
+      this.filteredProducts.push(newProduct);
+    });
   }
 
   openEditModal(product: Product): void {
@@ -198,5 +205,15 @@ export class AdminPageComponent implements OnInit {
         });
       }
     });
+  }
+
+  generateSKU(length: number): string {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    let sku = '';
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      sku += characters.charAt(randomIndex);
+    }
+    return sku;
   }
 }

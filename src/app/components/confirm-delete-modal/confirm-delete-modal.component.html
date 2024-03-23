@@ -1,8 +1,22 @@
-<h1 mat-dialog-title>Conferma eliminazione</h1>
 <div mat-dialog-content>
-  <p>Sei sicuro di voler eliminare questo prodotto?</p>
+  <div class="text-center">
+    <img
+      src="https://i.ibb.co/CKMx5ht/pngwing-com-2.png"
+      alt=""
+      style="width: 75px"
+    />
+  </div>
+  <h2>Eliminare il prodotto?</h2>
 </div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onCancelClick()">Annulla</button>
-  <button mat-button color="warn" (click)="onConfirmClick()">Conferma</button>
+<div
+  mat-dialog-actions
+  class="justify-content-center"
+  style="margin-bottom: 15px"
+>
+  <button mat-button (click)="onCancelClick()" class="custom-button me-3 fs-2">
+    Annulla
+  </button>
+  <button mat-button class="custom-button2 fs-2" (click)="onConfirmClick()">
+    Elimina
+  </button>
 </div>

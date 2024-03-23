@@ -1,4 +1,4 @@
-<div class="container filtered-products fs-3 mt-5">
+<div class="container filtered-products fs-2 mt-5">
   <div style="border-bottom: 7px double #1e1f29" class="mb-4">
     <div class="text-center m-0">
       <img
@@ -43,7 +43,7 @@
       <button
         mat-raised-button
         class="custom-button3"
-        style="margin-bottom: 18px"
+        style="margin-bottom: 16px"
         (click)="openAddModal(newProduct)"
       >
         Aggiungi
@@ -94,7 +94,7 @@
   </div>
 </div>
 
-<div class="container filtered-orders fs-3 mt-5">
+<div class="container filtered-orders fs-2 mt-5">
   <div style="border-bottom: 7px double #1e1f29" class="mb-4">
     <div class="text-center m-0">
       <img
@@ -123,34 +123,42 @@
       </select>
     </div>
   </div>
-  <div class="card table-card" style="max-height: 525px; overflow-y: auto">
-    <table class="table table-striped m-0">
-      <thead>
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Tracking</th>
-          <th scope="col">Totale</th>
-          <th scope="col">Data Acquisto</th>
-          <th scope="col">Stato</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let order of filteredOrders">
-          <td>{{ order.id }}</td>
-          <td>{{ order.orderTrackingNumber }}</td>
-          <td>{{ order.totalPrice | currency : "EUR" }}</td>
-          <td>{{ order.dateCreated }}</td>
-          <td>
-            <select
-              [(ngModel)]="order.status"
-              (change)="updateOrderStatus(order)"
-            >
-              <option value="IN LAVORAZIONE">IN LAVORAZIONE</option>
-              <option value="SPEDITO">SPEDITO</option>
-            </select>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <div *ngIf="loadingData; else ordersList">
+    <div class="text-center mt-5">
+      <i class="fas fa-spinner fa-3x fa-spin"></i>
+    </div>
   </div>
+  <ng-template #ordersList>
+    <div class="card table-card" style="max-height: 525px; overflow-y: auto">
+      <table class="table table-striped m-0">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Tracking</th>
+            <th scope="col">Totale</th>
+            <th scope="col">Data Acquisto</th>
+            <th scope="col">Stato</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let order of filteredOrders">
+            <td>{{ order.id }}</td>
+            <td>{{ order.orderTrackingNumber }}</td>
+            <td>{{ order.totalPrice | currency : "EUR" }}</td>
+            <td>{{ order.dateCreated }}</td>
+            <td>
+              <select
+                [(ngModel)]="order.status"
+                (change)="updateOrderStatus(order)"
+              >
+                <option value="IN LAVORAZIONE">IN LAVORAZIONE</option>
+                <option value="SPEDITO">SPEDITO</option>
+              </select>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </ng-template>
 </div>

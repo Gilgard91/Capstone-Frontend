@@ -23,9 +23,12 @@
           </h4>
           <div class="d-flex flex-row my-3">
             <span class="text-success" style="font-weight: 600"
-              ><i class="fas fa-shopping-basket fa-sm mx-1"></i> In stock:
+              ><i class="fas fa-shopping-basket fa-sm mx-1"></i> Disponibilità:
               {{ product?.unitsInStock }}</span
             >
+          </div>
+          <div class="product-sku">
+            <p>SKU: {{ product.sku }}</p>
           </div>
           <div>
             <h4 style="color: #ae1c79; font-size: 24px">

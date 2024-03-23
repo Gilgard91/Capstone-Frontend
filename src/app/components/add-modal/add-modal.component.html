@@ -2,7 +2,11 @@
 <div mat-dialog-content>
   <div class="form-group">
     <label for="category">Categoria</label>
-    <select class="form-control" id="category" [(ngModel)]="data.category">
+    <select
+      class="form-control-category"
+      id="category"
+      [(ngModel)]="data.category"
+    >
       <option *ngFor="let category of categories" [ngValue]="category">
         {{ category.categoryName }}
       </option>
@@ -24,7 +28,7 @@
   <div class="form-group">
     <label for="unitPrice">Descrizione</label>
     <textarea
-      rows="4"
+      rows="3"
       class="form-control"
       id="description"
       [(ngModel)]="data.description"
@@ -48,6 +52,10 @@
       id="unitsInStock"
       [(ngModel)]="data.unitsInStock"
     />
+  </div>
+  <div class="form-group">
+    <label for="sku">Codice SKU</label>
+    <input type="text" class="form-control" id="sku" [(ngModel)]="data.sku" />
   </div>
 </div>
 <div mat-dialog-actions>

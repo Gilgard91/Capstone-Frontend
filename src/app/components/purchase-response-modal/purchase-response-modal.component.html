@@ -1,4 +1,9 @@
-<h2>Ecco il tuo codice di tracking:</h2>
-<p>{{ data.orderTrackingNumber }}</p>
-
-<button mat-button (click)="onConfirmClick()">Chiudi</button>
+<div class="text-center">
+  <h2>Ecco il tuo codice di tracking:</h2>
+  <label>{{ data.orderTrackingNumber }}</label>
+</div>
+<div style="margin-top: 21px; margin-bottom: 15px; text-align: center">
+  <button mat-button class="custom-button2 fs-2" (click)="onConfirmClick()">
+    Conferma
+  </button>
+</div>

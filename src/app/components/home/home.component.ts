@@ -100,6 +100,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   // }
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
     this.initCarouselBanner();
     console.log('TEST JQUERY: ', $);
     this.route.paramMap.subscribe(() => {

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {
@@ -62,7 +62,15 @@ export class AdminService {
 
   addProduct(product: Product): Observable<Product> {
     const url = 'http://localhost:3001/products';
-    return this.http.post<Product>(url, product);
+    const oktaTokenStorage = JSON.parse(
+      localStorage.getItem('okta-token-storage')
+    );
+    const accessToken = oktaTokenStorage.accessToken.accessToken;
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${accessToken}`,
+    });
+    return this.http.post<Product>(url, product, { headers });
   }
 
   getCategories(): Observable<CategoryResponse[]> {

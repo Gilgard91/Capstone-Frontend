@@ -51,6 +51,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
     this.reviewCartDetails();
 
     this.checkoutFormGroup = this.formBuilder.group({
