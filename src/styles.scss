@@ -13,7 +13,6 @@
   width: 100%;
   padding: 15px 15px;
   // border-bottom: 1.5px solid black;
-
   background: linear-gradient(
     to bottom right,
     rgb(56 3 139 / 94%),
@@ -55,62 +54,6 @@
   padding: 11px 0 0 0;
 }
 
-// #header {
-//   z-index: 1000;
-//   position: sticky;
-//   top: 0;
-// }
-
-// #bottom-header {
-//   width: 100%;
-
-//   transition: padding 0.5s ease;
-
-//   padding: 15px 15px;
-//   border-bottom: 1.5px solid black;
-//   background: linear-gradient(
-//     to bottom right,
-//     rgb(56 3 139 / 94%),
-//     rgb(202 34 117 / 94%)
-//   ) !important;
-// }
-
-// .smaller-header {
-//   padding: 0 !important;
-//   transition: padding 0.5s ease !important;
-//   backdrop-filter: blur(3px) !important;
-// }
-
-// .bigger-header-img {
-//   width: 248px;
-//   transition: width 0.5s ease !important;
-// }
-
-// .bigger-header-search {
-//   padding: 15px 0px;
-//   transition: padding 0.5s ease !important;
-// }
-
-// .bigger-header-cart {
-//   padding: 15px 0px;
-//   transition: padding 0.5s ease !important;
-// }
-
-// .smaller-header-img {
-//   width: 155px !important;
-//   transition: width 0.5s ease !important;
-// }
-
-// .smaller-header-search {
-//   padding: 0 !important;
-//   transition: padding 0.5s ease !important;
-// }
-
-// .smaller-header-cart {
-//   padding: 11px 0px 0 0 !important;
-//   transition: padding 0.5s ease !important;
-// }
-
 body {
   font-family: "Barlow Condensed", sans-serif !important;
   font-weight: 400;
@@ -124,7 +67,7 @@ body {
 }
 
 #content-wrap {
-  padding-bottom: 472px; /* Footer height */
+  padding-bottom: 472px;
 }
 
 h1,
@@ -151,7 +94,6 @@ h3 {
 }
 
 a {
-  /* color: #1e1f29 !important; */
   color: #fff;
   font-weight: 500;
   -webkit-transition: 0.2s color;
@@ -199,10 +141,6 @@ app-cart-details div.container {
 app-home {
   min-height: 800px;
 }
-
-/*----------------------------*\
-        Buttons
-    \*----------------------------*/
 
 #okta-sign-in .custom-checkbox label,
 #okta-sign-in .custom-radio label {
@@ -301,12 +239,6 @@ app-home {
   color: #fff;
 }
 
-/*----------------------------*\
-        Inputs
-    \*----------------------------*/
-
-/*-- Text input --*/
-
 .input {
   height: 40px;
   padding: 0px 15px;
@@ -375,16 +307,12 @@ textarea.input {
   color: #d10024;
 }
 
-/*-- Select input --*/
-
 .input-select {
   padding: 0px 15px;
   background: #fff;
   border: 1px solid #e4e7ed;
   height: 40px;
 }
-
-/*-- checkbox & radio input --*/
 
 .input-radio,
 .input-checkbox {
@@ -491,10 +419,6 @@ textarea.input {
   max-height: 800px;
 }
 
-/*----------------------------*\
-        Section
-    \*----------------------------*/
-
 .section {
   padding-top: 30px;
   padding-bottom: 30px;
@@ -559,63 +483,6 @@ textarea.input {
   right: 0px;
 }
 
-/*----------------------------*\
-        Breadcrumb
-    \*----------------------------*/
-
-#breadcrumb {
-  padding: 30px 0px;
-  background: #fbfbfc;
-  border-bottom: 1px solid #e4e7ed;
-  margin-bottom: 30px;
-}
-
-#breadcrumb .breadcrumb-header {
-  display: inline-block;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  margin-right: 15px;
-  text-transform: uppercase;
-}
-
-#breadcrumb .breadcrumb-tree {
-  display: inline-block;
-}
-
-#breadcrumb .breadcrumb-tree li {
-  display: inline-block;
-  font-size: 12px;
-  font-weight: 500;
-  text-transform: uppercase;
-}
-
-#breadcrumb .breadcrumb-tree li + li {
-  margin-left: 10px;
-}
-
-#breadcrumb .breadcrumb-tree li + li:before {
-  content: "/";
-  display: inline-block;
-  color: #8d99ae;
-  margin-right: 10px;
-}
-
-#breadcrumb .breadcrumb-tree li a {
-  color: #8d99ae;
-}
-
-#breadcrumb .breadcrumb-tree li a:hover {
-  color: #d10024;
-}
-
-/*=========================================================
-        02 -> HEADER
-    ===========================================================*/
-
-/*----------------------------*\
-        Top header
-    \*----------------------------*/
-
 #top-header {
   /* padding-bottom: 10px; */
   background-color: #1e1f29;
@@ -668,17 +535,6 @@ app-login > div {
   margin: 29px auto 8px;
 }
 
-/*----------------------------*\
-        Logo
-    \*----------------------------*/
-
-// #header {
-//   padding-top: 15px;
-//   padding-bottom: 15px;
-//    background-color: #15161D;
-//   background: linear-gradient(to bottom right, #38038b, #ca2275);
-// }
-
 .header-logo {
   float: left;
 }
@@ -686,10 +542,6 @@ app-login > div {
 .header-logo .logo img {
   display: block;
 }
-
-/*----------------------------*\
-        Search
-    \*----------------------------*/
 
 .header-search {
   padding: 15px 0px;
@@ -722,10 +574,6 @@ app-login > div {
 .custom-form {
   font-size: 19px;
 }
-
-/*----------------------------*\
-        Cart
-    \*----------------------------*/
 
 .header-ctn {
   float: right;
@@ -854,19 +702,11 @@ app-login > div {
   padding-bottom: 15px;
 }
 
-/*=========================================================
-        03 -> Navigation
-    ===========================================================*/
-
 #navigation {
   background: #fff;
   border-bottom: 2px solid #e4e7ed;
   border-top: 3px solid #d10024;
 }
-
-/*----------------------------*\
-        Main nav
-    \*----------------------------*/
 
 .main-nav > li + li {
   margin-left: 30px;
@@ -902,10 +742,6 @@ app-login > div {
 .header-ctn li.nav-toggle {
   display: none;
 }
-
-/*----------------------------*\
-        responsive nav
-    \*----------------------------*/
 
 @media only screen and (max-width: 991px) {
   .header-ctn .menu-toggle {
@@ -950,10 +786,6 @@ app-login > div {
     color: #fff;
   }
 }
-
-/*=========================================================
-        04 -> CATEGORY SHOP
-    ===========================================================*/
 
 .shop {
   position: relative;
@@ -1025,10 +857,6 @@ app-login > div {
   text-transform: uppercase;
 }
 
-/*=========================================================
-        05 -> HOT DEAL
-    ===========================================================*/
-
 #hot-deal.section {
   padding: 60px 0px;
   margin: 30px 0px;
@@ -1087,14 +915,6 @@ app-login > div {
 .hot-deal .cta-btn {
   margin-top: 15px;
 }
-
-/*=========================================================
-        06 -> PRODUCT
-    ===========================================================*/
-
-/*----------------------------*\
-        product
-    \*----------------------------*/
 
 .product {
   position: relative;
@@ -1381,10 +1201,6 @@ app-login > div {
   visibility: visible;
 }
 
-/*----------------------------*\
-        Widget product
-    \*----------------------------*/
-
 .product-widget {
   position: relative;
 }
@@ -1459,16 +1275,12 @@ app-login > div {
   color: #fff;
 }
 
-/*----------------------------*\
-        Products slick
-    \*----------------------------*/
-
 .custom-pagination .page-link {
-  font-size: 16px; /* Imposta la dimensione del font desiderata */
+  font-size: 16px;
 }
 
 .custom-pagination .page-link .fa {
-  font-size: 16px; /* Imposta la dimensione delle icone desiderata */
+  font-size: 16px;
 }
 
 .pagination > .active > a {
@@ -1530,14 +1342,6 @@ app-login > div {
   font-size: 14px;
 }
 
-/*=========================================================
-        07 -> PRODUCTS PAGE
-    ===========================================================*/
-
-/*----------------------------*\
-        Aside
-    \*----------------------------*/
-
 .aside + .aside {
   margin-top: 30px;
 }
@@ -1547,8 +1351,6 @@ app-login > div {
   font-size: 18px;
   margin: 15px 0px 30px;
 }
-
-/*-- checkbox Filter --*/
 
 .checkbox-filter > div + div {
   margin-top: 10px;
@@ -1563,8 +1365,6 @@ app-login > div {
 .checkbox-filter .input-checkbox label small {
   color: #8d99ae;
 }
-
-/*-- Price Filter --*/
 
 #price-slider {
   margin-bottom: 15px;
@@ -1607,120 +1407,6 @@ app-login > div {
   display: inline-block;
   width: calc(50% - 7px);
 }
-
-/*----------------------------*\
-        Store
-    \*----------------------------*/
-
-.store-filter {
-  margin-bottom: 15px;
-  margin-top: 15px;
-}
-
-/*-- Store Sort --*/
-
-.store-sort {
-  display: inline-block;
-}
-
-.store-sort label {
-  font-weight: 500;
-  font-size: 12px;
-  text-transform: uppercase;
-  margin-right: 15px;
-}
-
-/*-- Store Grid --*/
-
-.store-grid {
-  float: right;
-}
-
-.store-grid li {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  background-color: #fff;
-  border: 1px solid #e4e7ed;
-  text-align: center;
-  -webkit-transition: 0.2s all;
-  transition: 0.2s all;
-}
-
-.store-grid li + li {
-  margin-left: 5px;
-}
-
-.store-grid li:hover {
-  background-color: #e4e7ed;
-  color: #d10024;
-}
-
-.store-grid li.active {
-  background-color: #d10024;
-  border-color: #d10024;
-  color: #fff;
-  cursor: default;
-}
-
-.store-grid li a {
-  display: block;
-}
-
-/*-- Store Pagination --*/
-
-.store-pagination {
-  float: right;
-}
-
-.store-pagination li {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  text-align: center;
-  background-color: #fff;
-  border: 1px solid #e4e7ed;
-  -webkit-transition: 0.2s all;
-  transition: 0.2s all;
-}
-
-.store-pagination li + li {
-  margin-left: 5px;
-}
-
-.store-pagination li:hover {
-  background-color: #e4e7ed;
-  color: #d10024;
-}
-
-.store-pagination li.active {
-  background-color: #d10024;
-  border-color: #d10024;
-  color: #fff;
-  font-weight: 500;
-  cursor: default;
-}
-
-.store-pagination li a {
-  display: block;
-}
-
-.store-qty {
-  margin-right: 30px;
-  font-weight: 500;
-  text-transform: uppercase;
-  font-size: 12px;
-}
-
-/*=========================================================
-        08 -> PRODUCT DETAILS PAGE
-    ===========================================================*/
-
-/*----------------------------*\
-        Product view
-    \*----------------------------*/
 
 #product-main-img .slick-prev {
   -webkit-transform: translateX(-15px);
@@ -1793,10 +1479,6 @@ app-login > div {
 .product-preview img {
   width: 100%;
 }
-
-/*----------------------------*\
-        Product details
-    \*----------------------------*/
 
 .product-details .product-name {
   text-transform: uppercase;
@@ -1936,10 +1618,6 @@ app-login > div {
 .product-details .product-links li + li {
   margin-left: 10px;
 }
-
-/*----------------------------*\
-         Product tab
-    \*----------------------------*/
 
 #product-tab {
   margin-top: 60px;
@@ -2175,10 +1853,6 @@ app-login > div {
   color: #d10024;
 }
 
-/*=========================================================
-        09 -> CHECKOUT PAGE
-    ===========================================================*/
-
 .billing-details {
   margin-bottom: 30px;
 }
@@ -2249,96 +1923,6 @@ app-login > div {
   display: block;
   margin-top: 30px;
 }
-
-/*=========================================================
-        10 -> NEWSLETTER
-    ===========================================================*/
-
-#newsletter.section {
-  border-top: 2px solid #e4e7ed;
-  border-bottom: 3px solid #d10024;
-  margin-top: 30px;
-}
-
-.newsletter {
-  text-align: center;
-}
-
-.newsletter p {
-  font-size: 24px;
-}
-
-.newsletter form {
-  position: relative;
-  max-width: 520px;
-  margin: 30px auto;
-}
-
-.newsletter form:after {
-  content: "\f003";
-  font-family: FontAwesome;
-  position: absolute;
-  font-size: 160px;
-  color: #e4e7ed;
-  top: 15px;
-  -webkit-transform: translateY(-50%) rotate(15deg);
-  -ms-transform: translateY(-50%) rotate(15deg);
-  transform: translateY(-50%) rotate(15deg);
-  z-index: -1;
-  left: -90px;
-}
-
-.newsletter form .input {
-  width: calc(100% - 160px);
-  margin-right: -4px;
-  border-radius: 40px 0px 0px 40px;
-}
-
-.newsletter form .newsletter-btn {
-  width: 160px;
-  height: 40px;
-  font-weight: 700;
-  background: #d10024;
-  color: #fff;
-  border: none;
-  border-radius: 0px 40px 40px 0px;
-}
-
-.newsletter .newsletter-follow {
-  text-align: center;
-}
-
-.newsletter .newsletter-follow li {
-  display: inline-block;
-  margin-right: 5px;
-}
-
-.newsletter .newsletter-follow li:last-child {
-  margin-right: 0px;
-}
-
-.newsletter .newsletter-follow li a {
-  position: relative;
-  display: block;
-  width: 40px;
-  height: 40px;
-  text-align: center;
-  line-height: 40px;
-  border: 1px solid #e4e7ed;
-  background-color: #fff;
-  -webkit-transition: 0.2s all;
-  transition: 0.2s all;
-}
-
-.newsletter .newsletter-follow li a:hover,
-.newsletter .newsletter-follow li a:focus {
-  background-color: #e4e7ed;
-  color: #d10024;
-}
-
-/*=========================================================
-        11 -> FOOTER
-    ===========================================================*/
 
 #footer {
   // background: #1e1f29;
@@ -2413,14 +1997,6 @@ app-login > div {
 //   display: block;
 // }
 
-/*=========================================================
-        12 -> SLICK STYLE
-    ===========================================================*/
-
-/*----------------------------*\
-        Arrows
-    \*----------------------------*/
-
 .slick-prev,
 .slick-next {
   width: 40px;
@@ -2470,10 +2046,6 @@ app-login > div {
   right: -20px;
 }
 
-/*----------------------------*\
-        Dots
-    \*----------------------------*/
-
 .slick-dots li,
 .slick-dots li button,
 .slick-dots li button:before {
@@ -2496,10 +2068,6 @@ app-login > div {
   position: static;
   margin: 15px 0px;
 }
-
-/*=========================================================
-        13 -> RESPONSIVE
-    ===========================================================*/
 
 @media only screen and (max-width: 1201px) {
 }
