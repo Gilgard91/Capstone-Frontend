@@ -11,7 +11,6 @@ import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
 declare var $: any;
 import 'node_modules/nivo-slider/jquery.nivo.slider.js';
-declare var jQuery: any;
 
 @Component({
   selector: 'app-home',
@@ -37,19 +36,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
     private route: ActivatedRoute
   ) {}
   ngAfterViewInit(): void {}
-
-  // initCarouselBanner() {
-  //   $(document).ready(() => {
-  //     $('.fade').slick({
-  //       dots: false,
-  //       infinite: false,
-  //       speed: 500,
-  //       fade: true,
-  //       rows: 1,
-  //       cssEase: 'linear',
-  //     });
-  //   });
-  // }
 
   initCarouselBanner() {
     $('.slick-carousel').slick({
@@ -91,14 +77,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
     });
   }
 
-  // initSlider() {
-  //   jQuery('#slider').nivoSlider({
-  //     effect: 'fade',
-  //     directionNav: false,
-  //     controlNav: false,
-  //   });
-  // }
-
   ngOnInit(): void {
     window.scrollTo(0, 0);
     this.initCarouselBanner();
@@ -109,17 +87,25 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
     this.productService.getProductListNewArrivals().subscribe({
       next: (res) => {
-        console.log('prova ', res);
+        console.log('nuovi arrivi ', res);
         this.productsNewArrival = res.content;
       },
     });
 
     this.productService.getProductListTopSelling().subscribe({
       next: (res) => {
-        console.log('prova 222 ', res);
+        console.log('top selling ', res);
         this.productsTopSelling = res.content;
       },
     });
+
+    const oktaTokenStorage = JSON.parse(
+      localStorage.getItem('okta-token-storage')
+    );
+
+    const accessToken = oktaTokenStorage.accessToken.accessToken;
+
+    console.log('token: ', accessToken);
   }
 
   getProducts() {
