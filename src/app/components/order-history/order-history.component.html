@@ -16,7 +16,10 @@
       </div>
     </div>
     <ng-template #orderHistoryContent>
-      <div *ngIf="orderHistoryList && orderHistoryList.length > 0">
+      <div
+        *ngIf="orderHistoryList && orderHistoryList.length > 0"
+        style="max-height: 525px; overflow-y: auto"
+      >
         <table class="table-bordered fs-2">
           <tbody>
             <tr>
